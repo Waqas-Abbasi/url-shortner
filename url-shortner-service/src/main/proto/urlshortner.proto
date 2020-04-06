@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.waqasabbasi.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HWP";
+
+package com.waqasabbasi.helloworld;
+
+service URLShortnerService {
+    rpc GetShortURL(ShortURLRequest) returns (ShortURLResponse) {}
+    rpc GetLongUrl(LongUrlRequest) returns (LongUrlResponse) {}
+}
+
+message ShortURLRequest {
+    string longUrl = 1;
+}
+
+message ShortURLResponse {
+    string shortUrl = 1;
+}
+
+message LongUrlRequest {
+    string shortUrl = 1;
+}
+
+message LongUrlResponse {
+    string longUrl = 1;
+}

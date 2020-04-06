@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          imagePullPolicy: Never
+          image: waqasa/frontend
+          ports:
+            - containerPort: 8080
+          env:
+            - name: URL_SHORTNER_SERVICE_SERVICE_HOST
+              value: $(URL_SHORTNER_SERVICE_SERVICE_HOST)
+            - name: URL_SHORTNER_SERVICE_SERVICE_PORT
+              value: $(URL_SHORTNER_SERVICE_SERVICE_PORT)
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8080
+      # Port to forward to inside the pod
+      targetPort: 8080
+      nodePort: 30003
+  type: LoadBalancer

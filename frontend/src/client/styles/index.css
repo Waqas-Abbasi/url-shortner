@@ -1,0 +1,149 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    background-color: #ffc6b6;
+    color: white;
+    letter-spacing: 0.15em;
+    font-family: Sans-serif, serif;
+}
+
+#root {
+    height: 100%
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.url-input-form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 40%;
+}
+
+.url-input-form-inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+}
+
+.url-input {
+    border-radius: 2px;
+    border: 0;
+    width: 90%;
+    height: 2em;
+    margin-right: 0.6em;
+    padding-inline-start: 0.5em;
+    padding-inline-end: 0.5em;
+    font-size: 1em;
+    text-decoration: none;
+    outline: none;
+}
+
+.shorten-url-button {
+    border-radius: 2px;
+    height: 2em;
+    border: 0;
+    font-size: 1em;
+    width: 25%;
+}
+
+.subtitle {
+    padding: 0;
+    vertical-align: center;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0 0;
+    letter-spacing: normal;
+}
+
+.user-urls {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    background-color: #d3d3d3;
+    width: 60%;
+}
+
+.url-pair {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.long-url {
+    opacity: 0.9;
+    cursor: pointer;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.long-url:hover {
+    opacity: 1;
+}
+
+.url-pair a {
+    color: gray;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.8;
+
+}
+
+.url-pair a:hover {
+    opacity: 1;
+}
+
+.url-link-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+}
+
+.url-link-container p {
+    font-size: 1em;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.url-link-container p:hover {
+    opacity: 1;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #6c6c6c;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 20px;
+
+    /* Position the tooltip */
+    top: 100%;
+    left: 50%;
+    font-size: 0.8em;
+    margin-left: -120px;
+}

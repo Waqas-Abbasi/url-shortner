@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: url-shortner-deployment
+  annotations:
+    service.alpha.kubernetes.io/app-protocols: '{"grpc":"HTTP2"}'
+spec:
+  selector:
+    matchLabels:
+      app: url-shortner-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: url-shortner-service
+    spec:
+      containers:
+        - name: url-shortner-service
+          imagePullPolicy: Never
+          image: waqasa/url-shortner-service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ZOOKEEPER_HOST
+              value: $(ZOOKEEPER_SERVICE_SERVICE_HOST)
+            - name: CASSANDRA_HOST
+              value: $(CASSANDRA_SERVICE_HOST)
+            - name: REDIS_MASTER_HOST
+              value: $(REDIS_MASTER_SERVICE_HOST)
+            - name: REDIS_SLAVE_HOST
+              value: $(REDIS_SLAVE_SERVICE_HOST)
+            - name: CLUSTER_IP
+              value: $(KUBERNETES_SERVICE_HOST)
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: url-shortner-service
+spec:
+  selector:
+    app: url-shortner-service
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 9090
+      # Port to forward to inside the pod
+      targetPort: 8080
+  type: LoadBalancer
