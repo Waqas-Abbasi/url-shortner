@@ -10,4 +10,9 @@ System Design:
 - Cassandra Schema:
 ![Cassandra Schema](https://i.imgur.com/TwwC7YC.png)
  
-System uses gRPC and Protobuff to achieve communication between client and server. 
+System uses gRPC and Protobuff to achieve communication between client and server.
+
+Demo Pictures:
+![Demo 1](https://i.imgur.com/RkUrFaN.png)
+
+![Demo 2](https://i.imgur.com/h8b6gMT.png)
