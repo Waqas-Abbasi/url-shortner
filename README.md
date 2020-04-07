@@ -12,7 +12,9 @@ System Design:
  
 System uses gRPC and Protobuff to achieve communication between client and server.
 
-Demo Pictures:
+Demo:
+![Demo Gif](https://i.ibb.co/x5Wh4fF/DEMO.gif)
+
 ![Demo 1](https://i.imgur.com/RkUrFaN.png)
 
 ![Demo 2](https://i.imgur.com/h8b6gMT.png)
