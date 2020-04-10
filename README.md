@@ -1,7 +1,7 @@
 Url Shortner Built with Distributed Technologies.
 
 System Design:
-![System Design](https://i.imgur.com/Ezxz9SY.png)
+![System Design](https://i.imgur.com/H2OqQIy.png)
 
 - Redis - Used for Caching Short URLs mapped to Long URLs (Useful for when someone opens a Short URL)
 
